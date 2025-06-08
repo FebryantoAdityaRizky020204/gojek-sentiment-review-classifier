@@ -11,3 +11,4 @@ tensorflow==2.19.0
 wordcloud==1.9.4
 Sastrawi==1.0.1
 streamlit-option-menu
+huggingface_hub
