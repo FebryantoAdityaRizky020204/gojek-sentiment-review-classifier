@@ -71,20 +71,20 @@ st.set_page_config(
 
 # ==================================================================================
 
-SVM_MODEL_PATH = "model/svm_tfidf_model.pkl"
-SVM_VECTORIZER_PATH = "model/svm_tfidf_vectorizer.pkl"
+SVM_MODEL_PATH = "./model/svm_tfidf_model.pkl"
+SVM_VECTORIZER_PATH = "./model/svm_tfidf_vectorizer.pkl"
 
-NB_MODEL_PATH = "model/naive_bayes_bow_model.pkl"
-NB_VECTORIZER_PATH = "model/naive_bayes_bow_vectorizer.pkl"
+NB_MODEL_PATH = "./model/naive_bayes_bow_model.pkl"
+NB_VECTORIZER_PATH = "./model/naive_bayes_bow_vectorizer.pkl"
 
 
-bilstm_label_encoder_path = "model/bilstm_label_encoder.pkl"
-bilstm_w2v_path = "model/bilstm_w2v_model.keras"
-bilstm_model_path = "model/bilstm_model.keras"
+bilstm_label_encoder_path = "./model/bilstm_label_encoder.pkl"
+bilstm_w2v_path = "./model/bilstm_w2v_model.keras"
+bilstm_model_path = "./model/bilstm_model.keras"
 
-bigru_label_encoder_path = "model/gru_label_encoder.pkl"
-bigru_fasttext_path = "model/gru_fasttext_model.keras"
-bigru_model_path = "model/gru_model.keras"
+bigru_label_encoder_path = "./model/gru_label_encoder.pkl"
+bigru_fasttext_path = "./model/gru_fasttext_model.keras"
+bigru_model_path = "./model/gru_model.keras"
 
 
 
