@@ -20,27 +20,16 @@ with st.sidebar:
     with st.container(border=True):
         st.markdown("### Kelompok 6")
 
-        # data_df = pd.DataFrame(
-        #     {
-        #         "AnggotaKelompok": [
-        #             "Willy Pratama (223020503101)",
-        #             "Yunisa Nur Safa (223020503107)",
-        #             "Aditya Rizky Febryanto (223020503108)",
-        #             "Novita Maria (223020503109)"
-        #         ]
-        #     }
-        # )
-
         namaKelompok = pd.DataFrame({
             "Nama" : ["Yunisa Nur Safa", "Willy Azrieel", "Aditya Rizky Febryanto", "Novita Maria", "Milky Gratia Br Sitorus", "Melda Nia Yuliani", "Dectrixie Theodore Mayumi S."],
             "NIM" : ["223020503078", "223020503101", "223020503108", "223020503109", "223020503116", "223020503119", "223020503140"]
         })
 
-        st.data_editor(
+        st.dataframe(
             namaKelompok,
             column_config={
                 "AnggotaKelompok": st.column_config.ListColumn(
-                    "Anggtota Kelompok",
+                    "Anggota Kelompok",
                     width="medium",
                 ),
             },
