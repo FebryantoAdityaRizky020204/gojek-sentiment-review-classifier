@@ -2,6 +2,10 @@ import streamlit as st
 import pandas as pd
 import base64
 import time
+import pickle
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
 
 from streamlit_option_menu import option_menu
 
@@ -10,6 +14,42 @@ st.set_page_config(
     page_icon="🏠",
     layout="wide"
 )
+
+
+# ==================================================================================
+SVM_MODEL_PATH = ".\models\PREPROCESS\svm_tfidf_model_20250605_042710.pkl"
+VECTORIZER_PATH = ".\models\PREPROCESS\svm_tfidf_vectorizer_20250605_042710.pkl"
+
+with open(SVM_MODEL_PATH, 'rb') as model_file:
+    svm_model = pickle.load(model_file)
+
+with open(VECTORIZER_PATH, 'rb') as vec_file:
+    svm_vectorizer = pickle.load(vec_file)
+
+# === Preprocessing Function ===
+import re
+from Sastrawi.Stemmer.StemmerFactory import StemmerFactory
+from Sastrawi.StopWordRemover.StopWordRemoverFactory import StopWordRemoverFactory
+from nltk.tokenize import word_tokenize
+
+stopwords_factory = StopWordRemoverFactory()
+stopwords = set(stopwords_factory.get_stop_words())
+stemmer = StemmerFactory().create_stemmer()
+
+def preprocess_text(text):
+    text = text.lower()
+    text = re.sub(r'http\S+|www\S+', '', text)
+    text = re.sub(r'[^\w\s]', '', text)
+    text = re.sub(r'\d+', '', text)
+    text = text.strip()
+
+    tokens = word_tokenize(text)
+    tokens = [token for token in tokens if token not in stopwords]
+    tokens = [stemmer.stem(token) for token in tokens]
+
+    return ' '.join(tokens)
+
+# ==================================================================================
 
 with st.sidebar:
     selected = option_menu(
