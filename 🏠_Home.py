@@ -73,18 +73,14 @@ from huggingface_hub import hf_hub_download
 import os
 import shutil
 
-def is_streamlit_cloud():
-    return os.environ.get("STREAMLIT_SERVER_ENVIRONMENT") == "cloud"
+# Unduh file .npy besar yang dibutuhkan oleh FastText
+vectors_ngram_npy = hf_hub_download(
+    repo_id="tangsan224/gru_fasttext_model",
+    filename="gru_fasttext_model.keras.wv.vectors_ngrams.npy"
+)
 
-if is_streamlit_cloud():
-    # Unduh file .npy besar yang dibutuhkan oleh FastText
-    vectors_ngram_npy = hf_hub_download(
-        repo_id="tangsan224/gru_fasttext_model",
-        filename="gru_fasttext_model.keras.wv.vectors_ngrams.npy"
-    )
-
-    # Salin ke folder yang diharapkan oleh FastText.load
-    shutil.copy(vectors_ngram_npy, "model/gru_fasttext_model.keras.wv.vectors_ngrams.npy")
+# Salin ke folder yang diharapkan oleh FastText.load
+shutil.copy(vectors_ngram_npy, "model/gru_fasttext_model.keras.wv.vectors_ngrams.npy")
 
 # ==============================================
 
