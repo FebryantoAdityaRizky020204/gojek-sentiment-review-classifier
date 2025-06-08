@@ -74,13 +74,17 @@ import os
 import shutil
 
 # Unduh file .npy besar yang dibutuhkan oleh FastText
-vectors_ngram_npy = hf_hub_download(
+from huggingface_hub import hf_hub_download
+
+vectors_ngram_path = hf_hub_download(
     repo_id="tangsan224/gru_fasttext_model",
-    filename="gru_fasttext_model.keras.wv.vectors_ngrams.npy"
+    filename="gru_fasttext_model.keras.wv.vectors_ngrams.npy",
+    repo_type="dataset"
 )
 
+
 # Salin ke folder yang diharapkan oleh FastText.load
-shutil.copy(vectors_ngram_npy, "model/gru_fasttext_model.keras.wv.vectors_ngrams.npy")
+shutil.copy(vectors_ngram_path, "model/gru_fasttext_model.keras.wv.vectors_ngrams.npy")
 
 # ==============================================
 
