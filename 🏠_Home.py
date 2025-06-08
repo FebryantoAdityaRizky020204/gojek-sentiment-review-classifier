@@ -1,26 +1,13 @@
 import streamlit as st
-import base64
-import time
 
 import pandas as pd
 import re
-import io
 import matplotlib.pyplot as plt
 import seaborn as sns
-import json
 
 import numpy as np
-import string
-import os
 import pickle
-import time
-import warnings
 
-from sklearn.model_selection import train_test_split, cross_val_score, StratifiedKFold
-from sklearn.feature_extraction.text import TfidfVectorizer, CountVectorizer
-from sklearn.naive_bayes import MultinomialNB
-from sklearn.svm import LinearSVC
-from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score, confusion_matrix, classification_report
 
 from scipy.sparse import csr_matrix, hstack
@@ -70,13 +57,6 @@ st.set_page_config(
 
 
 # ==================================================================================
-# SVM_MODEL_PATH = "models\PREPROCESS\svm_tfidf_model_20250605_042710.pkl"
-# SVM_VECTORIZER_PATH = "models\PREPROCESS\svm_tfidf_vectorizer_20250605_042710.pkl"
-
-# NB_MODEL_PATH = "models/PREPROCESS/naive_bayes_bow_model.pkl"
-# NB_VECTORIZER_PATH = "models/PREPROCESS/naive_bayes_bow_vectorizer.pkl"
-
-
 SVM_MODEL_PATH = "model/svm_tfidf_model.pkl"
 SVM_VECTORIZER_PATH = "model/svm_tfidf_vectorizer.pkl"
 
