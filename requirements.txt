@@ -1,0 +1,9 @@
+seaborn
+plotly
+streamlit
+matplotlib
+pandas
+scikit-learn
+pgmpy==0.1.21
+numpy==1.26.4
+streamlit-option-menu
